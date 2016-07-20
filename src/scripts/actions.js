@@ -27,6 +27,12 @@ const ACTIONS = {
                 console.log(error)
             }
         )
+    },
+
+    logUserOut: function() {
+        User.logout().then(
+            () => location.hash = 'login'
+        )
     }
 }
 
