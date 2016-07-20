@@ -1,4 +1,6 @@
 import React from 'react'
+import Header from './header'
+
 
 const DishesView = React.createClass({
 	 render: function() {
