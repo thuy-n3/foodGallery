@@ -7,7 +7,7 @@ const Header = React.createClass({
     render: function() {
         return (
             <div id="headerContainer">
-                <marquee height="50" behavior="alternate" direction="up" >Mongo Messages</marquee>
+                <marquee height="50" behavior="alternate" direction="up" >Food Mood</marquee>
                 <NavBar />
             </div>
             )
