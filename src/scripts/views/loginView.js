@@ -20,7 +20,11 @@ const RegisterBox = React.createClass({
 
     _handleRegister: function(evt) {
         evt.preventDefault()
-        ACTIONS.registerUser(evt.currentTarget.email.value,evt.currentTarget.password.value)
+        ACTIONS.registerUser({
+            email: evt.currentTarget.email.value,
+            password: evt.currentTarget.password.value,
+            name: evt.currentTarget.userName.value
+        })
     },
 
     render: function() {
@@ -28,7 +32,7 @@ const RegisterBox = React.createClass({
             <div className="loginBox register">
                 <form onSubmit={this._handleRegister} >
                     <h3>Register</h3>
-                    <input name = 'name' placeholder = 'pleaseenter your name' /> {/* ADDED ONE INPUT*/}
+                    <input name = 'userName' placeholder = 'please enter your name' /> {/* ADDED ONE INPUT*/}
                     <input type="email" name="email" placeholder="enter your email" />
                     <input type="password" name="password" placeholder="enter a password" />
                     <button type="submit">sign up!</button>

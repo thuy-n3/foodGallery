@@ -22,7 +22,7 @@ const NavBar = React.createClass({
                 <a href="#home">Home</a>
                 <a href="#dish/myDishes">My Dishes</a>
                 <a href="#dish/postDishes">Post Dish</a>
-                <a href="#" onClick={ACTIONS.logUserOut} >Log Out</a>
+                <a href="#" onClick={ACTIONS.logUserOut}>Log Out</a>
             </div>
             )
     }
