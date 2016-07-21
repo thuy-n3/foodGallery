@@ -2,11 +2,43 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import Backbone from 'backbone'
 import init from './init'
+import LoginView from './views/loginView'
 
+const app = function(){
 
-const app = function() {
-  document.querySelector('.container').innerHTML = "<h1>Woah!</h1>"
+	var AppRouter = Backbone.Router.extend({
+	routes: {
+		"home": "homeHandler",
+		"dish/ppostDishes": "postDishHandler",
+		"dish/myDishes": "myDishesHandler",
+		"login": "loginHandeler",
+		"*catchall": "redirectHandler"
+	}, 
+	homeHandler: function() {
+		ReactDOM.render(<DishesView />, document.querySelector('.container'))
+	}, 
+	postDishHandler: function(){
+		ReactDOM.render(<ComposeView />, document.querySelector('.container'))
+	}, 
+	myDishesHandler: function(){
+		ReactDOM.render(<MyDishesView />, document.querySelector('.container'))
+	}, 
+	loginHandeler: function(){
+		ReactDOM.render(<LoginView />, document.querySelector('.container'))
+	},
+	redirectHandler: function(){
+		location.hash = "home"
+	},
+
+	initialize: function(){
+		Backbone.history.start()
+	}
+
+})
+new AppRouter()
+	
 }
+
 
 // x..x..x..x..x..x..x..x..x..x..x..x..x..x..x..x..
 // NECESSARY FOR USER FUNCTIONALITY. DO NOT CHANGE. 
