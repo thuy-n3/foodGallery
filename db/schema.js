@@ -10,28 +10,32 @@ const usersSchema = new Schema({
   email:     { type: String, required: true },
   password:  { type: String, required: true },
   // x..x..x..x..x..x..x..x..x..x..x..x..x..x..x..x..x..x..x..x..x..x
-  
+
    // example of optional fields
   name:      { type: String },
   createdAt: { type: Date, default: Date.now }
 
 })
 
-//step 1
-const dishSchema = new Schema({
-	description: {type: String, require: true},
-	rating: {type: Number, require: true}, 
-	likes: {type: Number, default: 0}, 
-	location: {type: String, require: true}, 
-	title: {type: String, require: true}, 
-	authorEmail: {type: String, require: true},
-	Imageurl: {type:String, require: true}, 
-	tags: {type: [String], default: []},
-	authorId: {type: String, require: true}
+
+//STEP ONE
+const dishSchema = new Schema ({ // establish the properties that we will use for the data
+    description: {type: String, required: true}, //some are required to fill out and others have defaults set
+    rating: {type: Number, required: true},
+    likes: {type: Number, default: 0},
+    location: {type: String, required: true},
+    title: {type: String, required: true},
+    authorEmail: {type: String, required: true},
+    imageUrl: {type: String, required: true},
+    tags: {type: [String], default: []},
+    authorId: {type: String, required: true}
+
 })
 
 module.exports = {
   User: createModel('User', usersSchema),
-  Dish: createModel('Dish', dishSchema)
+
+  Dish: createModel('Dish', dishSchema) //STEP TWO (export model)
+
 }
 

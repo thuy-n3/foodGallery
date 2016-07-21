@@ -1,7 +1,10 @@
+
+
 import React from 'react'
 import ACTIONS from '../actions'
 
 const Header = React.createClass({
+
 	render: function() {
 		return (
 			<div id="headerContainer">
@@ -15,7 +18,7 @@ const Header = React.createClass({
 const NavBar = React.createClass({
 	render: function() {
 		return (
-			<div id="navBar">
+			<div id="navBar"> {/*made a few edits here so that is makes sense for this app*/}
 				<a href="#login">log in</a>
 				<a href="#home">home</a>
 				<a href="#messages/read">inbox</a>
@@ -24,6 +27,7 @@ const NavBar = React.createClass({
 			</div>
 			)
 	}
+
 })
 
 export default Header
