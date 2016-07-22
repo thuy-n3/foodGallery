@@ -92,3 +92,4 @@ apiRouter.get('/user/dishes', function(request, response) {
 
 
 
+module.exports = apiRouter

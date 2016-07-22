@@ -18,7 +18,7 @@ const usersSchema = new Schema({
 })
 
 
-//STEP ONE
+//STEP ONE - this is where you start by establishing properties for the db - for the backend
 const dishSchema = new Schema ({ // establish the properties that we will use for the data
     description: {type: String, required: true}, //some are required to fill out and others have defaults set
     rating: {type: Number, required: true},
@@ -32,10 +32,10 @@ const dishSchema = new Schema ({ // establish the properties that we will use fo
 
 })
 
-module.exports = {
+module.exports = { //STEP TWO (export model)
   User: createModel('User', usersSchema),
 
-  Dish: createModel('Dish', dishSchema) //STEP TWO (export model)
+  Dish: createModel('Dish', dishSchema) 
 
 }
 

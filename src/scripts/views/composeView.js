@@ -4,6 +4,7 @@ import ACTIONS from '../actions'
 import {User} from '../models/models'
 import ReactFilepicker from 'react-filepicker'
 
+
 const ComposeView = React.createClass({
 	 render: function() {
 	 	return (
@@ -27,7 +28,8 @@ const DishPostingForm = React.createClass({
 			rating: e.currentTarget.rating.value, 
 			authorId: User.getCurrentUser()._id,
 			authorEmail: User.getCurrentUser().email,
-			imageUrl: this.url ? this.url: '/images/img-not-found.png'
+			imageUrl: this.url ? this.url: '/images/img-not-found.png',
+			// tags: e.currentTarget.tags.value.split(",")
 		})
 	},
 
@@ -43,11 +45,9 @@ const DishPostingForm = React.createClass({
 				<form onSubmit={this._handleCompose} >
 					<input type="text" name="title" placeholder="Enter the dish title" />
 					<textarea type="text" name="decription" placeholder="Enter the description" ></textarea>
-					<input type="text" name="location" placeholder="Enter the dish title" />
-					<input type="text" name="rating" />
-					<ReactFilepicker apikey="AbYUBwPJRkmndVRXUSK9yz" onSuccess={this_submitImage} />
-
-
+					<input type="text" name="location" placeholder="Enter location" />
+					<input type="text" name="rating" placeholder="Rate Us"/>
+					<ReactFilepicker apikey="AbYUBwPJRkmndVRXUSK9yz" onSuccess={this._submitImage} />
 					<button type="submit">SUBMIT!</button>
 				</form>
 			</div>

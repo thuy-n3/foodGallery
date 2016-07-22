@@ -4,6 +4,8 @@
 import {User, DishModel} from './models/models'
 import DISH_STORE from './store'
 
+console.log(DISH_STORE)
+
 
 const ACTIONS = {
 
@@ -55,8 +57,14 @@ const ACTIONS = {
 
     },
 
-    fetchDishes: function(){
-        DISH_STORE.data.collection.fetch()
+    fetchDishes: function(tags){
+        DISH_STORE.data.collection.fetch(
+            {
+                data:{
+                    tags: tags
+                }
+            }
+        )
     }
 
 }

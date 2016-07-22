@@ -1,6 +1,6 @@
 import React from 'react'
 import Header from './header'
-import DISH_STORE from '../store'
+import DISH_STORE from '../store.js'
 import ACTIONS from '../actions'
 
 const Dashboard = React.createClass({
@@ -15,19 +15,28 @@ const Dashboard = React.createClass({
 	//start listening to the store 
 		ACTIONS.fetchDishes()
 		DISH_STORE.on('updateContent', ()=> {
-			this.setState(DISH_STORE._getData() )
-		})
-	},
+			this.setState(DISH_STORE._getData() )})
+
+			},
 
 	componentWillUnmount: function(){
 
 		DISH_STORE.off('updateContent')
 	},
 
+	_handleTagSearch: function(evt){
+		if(evt.keyCode === 13){
+			console.log(evt.target.value)
+			ACTIONS.fetchDishes(evt.target.value)
+			evt.target.value = ''
+		}
+	},
+
 	 render: function() {
 	 	return (
-	 		<div className='dashboard' >
+	 		<div className="dashboard">
 	 			<Header />
+	 				<input onKeyDown = {this._handleTagSearch} type='text' placeholder='Enter tag' />
 	 			<h3>dashboard</h3>
 	 			<DishContainer dishColl = {this.state.collection} />
 	 		</div>

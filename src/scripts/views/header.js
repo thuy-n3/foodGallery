@@ -21,8 +21,8 @@ const NavBar = React.createClass({
 			<div id="navBar"> {/*made a few edits here so that is makes sense for this app*/}
 				<a href="#login">log in</a>
 				<a href="#home">home</a>
-				<a href="#messages/read">inbox</a>
-				<a href="#messages/write">compose</a>
+				<a href="#dish/myDishes">inbox</a>
+				<a href="#dish/postDishes">compose</a>
 				<a href="#" onClick={ACTIONS.logUserOut} >log out</a>
 			</div>
 			)

@@ -3,11 +3,11 @@ import ReactDOM from 'react-dom'
 import Backbone from 'backbone'
 import init from './init'
 import LoginView from './views/loginView'
-	
 import Dashboard from './views/dashboard'
 import DishesView from './views/dishesView'
 import ComposeView from './views/composeView'
-import  {User} from './models/models'
+import {User} from './models/models'
+import DISH_STORE from './store'
 
 //STEP 5 (build your client side api routes)
 const app = function() {
