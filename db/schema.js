@@ -20,9 +20,9 @@ const usersSchema = new Schema({
 
 //STEP ONE - this is where you start by establishing properties for the db - for the backend
 const dishSchema = new Schema ({ // establish the properties that we will use for the data
-    description: {type: String, required: true}, //some are required to fill out and others have defaults set
+    description: {type: String, required: false}, //some are required to fill out and others have defaults set
     rating: {type: Number, required: true},
-    likes: {type: Number, default: 0},
+    likes: {type: [String], default: []},
     location: {type: String, required: true},
     title: {type: String, required: true},
     authorEmail: {type: String, required: true},

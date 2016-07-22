@@ -21,6 +21,7 @@ const DISH_STORE = _.extend(Backbone.Events, {	//extend underscore and backbone.
 		return _.clone(this.data)	//make a clone b/c we don't want to modify the state directly(original data)
 	},
 
+	
 	initialize: function(){
 		this.data.collection.on('sync update', this._emitChange.bind(this))
 	}

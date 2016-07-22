@@ -1,4 +1,4 @@
-global.PROJECT_NAME = 'coolproject3000'
+global.PROJECT_NAME = 'FoodGallery'
 // x..x..x..x..x..x..x..x..x..x..x..x..x..x..x..x..x..x..x..x..x..x
 
 if (!global.PROJECT_NAME) { //« set by npm run init-dev »

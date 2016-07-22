@@ -1,7 +1,7 @@
 
 //STEP 6 (CREATE ACTIONS MODULE)
 
-import {User, DishModel} from './models/models'
+import {User, DishModel, DishCollection} from './models/models'
 import DISH_STORE from './store'
 
 console.log(DISH_STORE)
@@ -65,10 +65,21 @@ const ACTIONS = {
                 }
             }
         )
+    }, 
+
+    LikeDish: function(dish){   //step1: modify dish, adding user ID to the likes
+        console.log(User.getCurrentUser()._id)  //step2: save dish to server
+        // dish.get('likes').push(userObj._id) //getting the likes and pushing the user id of those likes 
+        dish.set({
+            likes: dish.get('likes').concat(userObj._id)
+        })  
+        dish.save().then((responseData)=>{
+            let dishCollCopy = new DishCollection(DISH_STORE.dishCollection.models)
+            dishCollCopy._byId[dish.id].set( responseData )
+            DISH_STORE.setStore('dishCollection', dishCollCopy)
+
+        })
     }
-
 }
-
-
 
 export default ACTIONS

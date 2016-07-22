@@ -22,15 +22,15 @@ const DishPostingForm = React.createClass({
 	_handleCompose: function(e){
 		e.preventDefault()
 		ACTIONS.saveDish({
-			title: e. currentTarget.title.value,
+			title: e.currentTarget.title.value,
 			description: e.currentTarget.decription.value,
 			location: e.currentTarget.location.value,
 			rating: e.currentTarget.rating.value, 
 			authorId: User.getCurrentUser()._id,
 			authorEmail: User.getCurrentUser().email,
 			imageUrl: this.url ? this.url: '/images/img-not-found.png',
-			// tags: e.currentTarget.tags.value.split(",")
-		})
+			// tags: e.currentTarget.tags.value.split(',')
+		})	
 	},
 
 	_submitImage: function(result){

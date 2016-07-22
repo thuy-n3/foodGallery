@@ -2,6 +2,7 @@ import React from 'react'
 import Header from './header'
 import DISH_STORE from '../store.js'
 import ACTIONS from '../actions'
+import {User} from '../models/models'
 
 const Dashboard = React.createClass({
 
@@ -56,12 +57,19 @@ const DishContainer = React.createClass({
 })
 
 const Dish = React.createClass({
+
+	_handleLikes: function(){
+		ACTIONS.likeDish(this.props.dishModel, User.getCurrentUser() )
+	},
+
 	render: function() {
 		return (
 			<div className="dish">
 				<p>{this.props.dishModel.get('title')}</p>
 				<p>{this.props.dishModel.get('description')}</p>
 				<img src={this.props.dishModel.get('imageUrl')} />
+				<button onClick={this._handleLikes}>like</button>
+				<p>likes: {this.props.dishModel.get('likes').length } </p>
 			</div>
 			)
 	}

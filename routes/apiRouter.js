@@ -61,6 +61,17 @@ apiRouter.post('/dishes', function(request, response) {
     })
 })
 
+apiRouter.put('/dishes/:_id', function(request,response){
+    Dish.findByIdandUpdate(request.params._id, request.body, function(error,records){
+      if(error){
+        response.send(error)
+      }
+      else{
+        response.json(records)
+      }
+    })
+})
+
 //this route will show us all the dishes posted by all users
         //some methods live directly on the model, so you don't need to create a new instance 
     //request.query = parse parmeters at end of url into tag OBJ to filter request from db
