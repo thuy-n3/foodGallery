@@ -62,7 +62,7 @@ apiRouter.post('/dishes', function(request, response) {
 })
 
 apiRouter.put('/dishes/:_id', function(request,response){
-    Dish.findByIdandUpdate(request.params._id, request.body, function(error,records){
+    Dish.findByIdAndUpdate(request.params._id, request.body, function(error,records){
       if(error){
         response.send(error)
       }

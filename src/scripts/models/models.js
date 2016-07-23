@@ -12,7 +12,7 @@ const DishModel = Backbone.Model.extend({
 
 const DishCollection = Backbone.Collection.extend ({
 	model: DishModel,
-	url: 'api/dishes'
+	url: '/api/dishes'
 })
 
 // ..x..x..x..x..x..x..x..x..x..x..x..x..x..x..x..x..x..x..x..x..x..x

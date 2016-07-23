@@ -63,12 +63,15 @@ const Dish = React.createClass({
 	},
 
 	render: function() {
+		console.log('dashboard - model', this.props.dishModel)
 		return (
 			<div className="dish">
+				<p>post by:{this.props.dishModel.get('authorEmail')}</p>
 				<p>{this.props.dishModel.get('title')}</p>
 				<p>{this.props.dishModel.get('description')}</p>
 				<img src={this.props.dishModel.get('imageUrl')} />
 				<button onClick={this._handleLikes}>like</button>
+				<p>tags:{this.props.dishModel.get('tags')}</p>
 				<p>likes: {this.props.dishModel.get('likes').length } </p>
 			</div>
 			)
