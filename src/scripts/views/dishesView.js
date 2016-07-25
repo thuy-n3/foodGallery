@@ -1,6 +1,7 @@
 import React from 'react'
 import Header from './header'
 
+console.log("im getting dishes")
 
 const DishesView = React.createClass({
 	 render: function() {

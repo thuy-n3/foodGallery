@@ -23,12 +23,12 @@ const app = function() {
         },
 
         goHome: function() {
-            ReactDOM.render(<Dashboard />, document.querySelector('.container')) 
+            ReactDOM.render(<Dashboard routedFrom = "home"/>, document.querySelector('.container')) 
             //don't need to pass anything onto props because we will be doing that in the store
         },
 
         handleDishPost: function() {
-            ReactDOM.render(<ComposeView routedFrom = "home"/>, document.querySelector('.container'))
+            ReactDOM.render(<ComposeView /> , document.querySelector('.container'))
             //routedFrom is passing route down through props from the Dashboard
         },
 

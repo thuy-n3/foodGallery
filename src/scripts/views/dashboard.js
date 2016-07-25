@@ -15,6 +15,8 @@ const Dashboard = React.createClass({
 		//componentWillRecievedProps is a React Lieft cycle method 
 		//newProps is passed in - is newProps like an empty obj before it receive the props with the authorId?????
 		//not use for inital render - more for updating state and transfer of props 
+		console.log("this is new props", newProps)
+		console.log("newProps", this.newProps)
 
 		let queryForDishes
 		if(newProps.routedFrom === 'dish/myDishes'){
@@ -38,6 +40,7 @@ const Dashboard = React.createClass({
 		// var queryObject = {authorId: «current user id » }
 
 		console.log("myDishes - current user:", User.getCurrentUser())
+		console.log("routedFrom:", this.props.routedFrom)
 
 		let queryForDishes
 		if(this.props.routedFrom === 'dish/myDishes'){
