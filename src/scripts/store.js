@@ -2,7 +2,7 @@ import Backbone from 'backbone'
 import _ from 'underscore'
 import {DishCollection} from './models/models'
 
-console.log('i am the dish store')
+// console.log('i am the dish store')
 
 //Set Up STORE - Backbone event object so all events are broadcast from here and point to the emit change method 
 const DISH_STORE = _.extend(Backbone.Events, {	//extend underscore and backbone.event is best listener of event happen in app 
@@ -23,7 +23,7 @@ const DISH_STORE = _.extend(Backbone.Events, {	//extend underscore and backbone.
 
 	
 	initialize: function(){
-		this.data.collection.on('sync update', this._emitChange.bind(this))
+		this.data.collection.on('sync update', this._emitChange.bind(this)) //this is a custom initialize method ?????
 	}
 
 })	

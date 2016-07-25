@@ -57,19 +57,19 @@ const ACTIONS = {
 
     },
 
-    fetchDishes: function(tags){
+    fetchDishes: function( queryObj ){
+        //the queryObj is the data from queryforDishes in dashbpard.js 
+    
         DISH_STORE.data.collection.fetch(
             {
-                data:{
-                    tags: tags
-                }
+                data: queryObj
             }
         )
     }, 
 
-    likeDish: function(dish, userObj){   //step1: modify dish, adding user ID to the likes
+    likeDish: function(dish, userObj){              //step1: modify dish, adding user ID to the likes
         // console.log(User.getCurrentUser()._id)  //step2: save dish to server
-        // dish.get('likes').push(userObj._id) //getting the likes and pushing the user id of those likes 
+        // dish.get('likes').push(userObj._id)    //getting the likes and pushing the user id of those likes 
         dish.set({
             likes: dish.get('likes').concat(userObj._id)
         })  

@@ -10,6 +10,7 @@ import {User} from './models/models'
 import DISH_STORE from './store'
 
 //STEP 5 (build your client side api routes)
+//building the routes for the routes in the browser
 const app = function() {
 
     var AppRouter = Backbone.Router.extend ({
@@ -22,15 +23,17 @@ const app = function() {
         },
 
         goHome: function() {
-            ReactDOM.render(<Dashboard />, document.querySelector('.container')) //don't need to pass anything onto props because we will be doing that in the store
+            ReactDOM.render(<Dashboard />, document.querySelector('.container')) 
+            //don't need to pass anything onto props because we will be doing that in the store
         },
 
         handleDishPost: function() {
-            ReactDOM.render(<ComposeView />, document.querySelector('.container'))
+            ReactDOM.render(<ComposeView routedFrom = "home"/>, document.querySelector('.container'))
+            //routedFrom is passing route down through props from the Dashboard
         },
 
         handleMyPosts: function() {
-            ReactDOM.render(<DishesView />, document.querySelector('.container'))
+            ReactDOM.render(<DishesView routedFrom = "dish/myDishes" />, document.querySelector('.container'))
         },
 
         handleLogin: function() {

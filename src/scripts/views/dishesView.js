@@ -19,18 +19,20 @@ const DishContainer = React.createClass({
 		return (
 			<div className="dishContainer">
 			</div>
-			)
+		)
 	}
 })
 
 const Dish = React.createClass({
+	
+
 	render: function() {
 		return (
 			<div className="dish">
 				<p>{this.props.dishModel.get('title')}</p>
 				<p>{this.props.dishModel.get('description')}</p>
 			</div>
-			)
+		)
 	}
 })
 

@@ -11,10 +11,42 @@ const Dashboard = React.createClass({
 		return DISH_STORE._getData()
 	},
 
+	componentWillRecievedProps: function(newProps){
+		//componentWillRecievedProps is a React Lieft cycle method 
+		//newProps is passed in - is newProps like an empty obj before it receive the props with the authorId?????
+		//not use for inital render - more for updating state and transfer of props 
+
+		let queryForDishes
+		if(newProps.routedFrom === 'dish/myDishes'){
+			queryForDishes = {'authorId':User.getCurrentUser()._id}  
+		}else{
+			queryForDishes = {}
+		}
+
+		ACTIONS.fetchDishes(queryForDishes)
+
+	},
+
 	componentWillMount: function(){	
 	//use componentWillMounnt to set up the pub sub systems
 	//start listening to the store 
-		ACTIONS.fetchDishes()
+
+		// if routedFrom 'home'
+		// var queryObject = {}
+
+		// if routedFrom 'dish/myDishes'
+		// var queryObject = {authorId: «current user id » }
+
+		console.log("myDishes - current user:", User.getCurrentUser())
+
+		let queryForDishes
+		if(this.props.routedFrom === 'dish/myDishes'){
+			queryForDishes = {'authorId' : User.getCurrentUser()._id }
+		}else{
+			queryForDishes = {}
+		}                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           
+
+		ACTIONS.fetchDishes(queryForDishes)
 		DISH_STORE.on('updateContent', ()=> {
 			this.setState(DISH_STORE._getData() )})
 
@@ -67,8 +99,8 @@ const Dish = React.createClass({
 		return (
 			<div className="dish">
 				<p>post by:{this.props.dishModel.get('authorEmail')}</p>
-				<p>{this.props.dishModel.get('title')}</p>
-				<p>{this.props.dishModel.get('description')}</p>
+				<p>title: {this.props.dishModel.get('title')}</p>
+				<p>description: {this.props.dishModel.get('description')}</p>
 				<img src={this.props.dishModel.get('imageUrl')} />
 				<button onClick={this._handleLikes}>like</button>
 				<p>tags:{this.props.dishModel.get('tags')}</p>
@@ -77,5 +109,8 @@ const Dish = React.createClass({
 			)
 	}
 })
+
+
+
 
 export default Dashboard

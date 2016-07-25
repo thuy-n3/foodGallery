@@ -2,6 +2,10 @@ const mongoose = require('mongoose');
 const createModel = mongoose.model.bind(mongoose);
 const Schema = mongoose.Schema;
 
+//schema is where define what you want in your database 
+//- what properties your data will have and what is required
+
+
 // ----------------------
 // USERS
 // ----------------------
@@ -16,6 +20,11 @@ const usersSchema = new Schema({
   createdAt: { type: Date, default: Date.now }
 
 })
+
+
+// ----------------------
+// DB PROPERTIES 
+// ----------------------
 
 
 //STEP ONE - this is where you start by establishing properties for the db - for the backend
